@@ -1,0 +1,445 @@
+/* 🔹 RESET & GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Noto Sans JP", sans-serif; /* ✅ changed from Poppins */
+}
+
+body {
+  overflow-x: hidden;
+  color: #000000;
+  background-color: #1c1c1c;
+}
+
+/* 🔹 MOUNTAIN BACKGROUND */
+.mountains {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('Mountain.png') no-repeat center top;
+  background-size: cover; /* fills the screen, keeps aspect ratio */
+  background-position: center bottom;
+  z-index: -3;
+}
+
+/* 🔹 CLOUDS */
+.cloud {
+  position: fixed;
+  width: 900px;
+  height: 450px;
+  background: url('Clouds.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.6;
+  z-index: -2;
+}
+
+.cloud-left {
+  left: -150px;
+  bottom: -70px;
+  animation: hoverCloudLeft 6s ease-in-out infinite;
+}
+
+.cloud-right {
+  right: -150px;
+  bottom: -70px;
+  animation: hoverCloudRight 6s ease-in-out infinite;
+}
+
+@keyframes hoverCloudLeft {
+  0% { transform: scaleX(-1) translateY(0); }
+  50% { transform: scaleX(-1) translateY(-15px); }
+  100% { transform: scaleX(-1) translateY(0); }
+}
+
+@keyframes hoverCloudRight {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* 🔹 NAVBAR */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: #ffffff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff0000;
+}
+
+/* 🔹 HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 130px 20px 100px 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.profile-pic {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000000;
+  margin-bottom: 25px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* 🔹 BUTTON */
+.btn {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* 🔹 ABOUT SECTION */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+}
+
+.about-pic.left {
+  width: 250px; 
+  height: auto;
+}
+
+.about-pic.right {
+  width: 200px; 
+  height: auto;
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: center;
+}
+
+.about-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* 🔹 CONTACT SECTION */
+.contact {
+  text-align: center;
+  padding: 120px 20px;
+  color: white;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 12px 40px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: rgba(255, 0, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* Hover picture styling */
+.btn-hover-pic {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-wrapper:hover .btn-hover-pic {
+  opacity: 1;
+}
+
+.btn-hover-pic.left {
+  left: -100px;
+}
+
+.btn-hover-pic.right {
+  right: -100px;
+}
+
+
+.btn-wrapper {
+  position: relative;
+}
+
+/* Hover profile pictures */
+.btn-hover-pic {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000000;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.btn-hover-pic.left {
+  left: -400px;
+}
+
+.btn-hover-pic.right {
+  right: -400px;
+}
+
+.btn-wrapper:hover .btn-hover-pic {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Contact buttons hover colors */
+.contact .btn.instagram:hover {
+  background-color: #e1306c;
+  color: #fff;
+}
+
+.contact .btn.facebook:hover {
+  background-color: #1877f2;
+  color: #fff;
+}
+
+/* 🔹 SECTIONS GENERAL */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* 🔹 PROJECTS */
+.project-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  width: 250px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 🔹 FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 30, 0.5);
+  font-size: 0.9rem;
+}
+
+/* 🔹 ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* --- Works Page --- */
+.works {
+  text-align: center;
+  padding: 120px 20px;
+  color: white;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.project-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.qr-code {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.project-link {
+  display: block;
+  color: #ff0000;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Skills Page --- */
+.skills {
+  text-align: center;
+  padding: 120px 20px;
+  color: white;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.skills-list li {
+  background-color: transparent;
+  color: black;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin: 10px 0;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skills-list li:hover {
+  background-color: rgba(255, 0, 0, 0.6);
+  color: white;
+  border-color: rgba(255, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+/* === NAVIGATION BAR FIX === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4); /* Slightly transparent header */
+  backdrop-filter: blur(5px);
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* 👈 This makes items appear side by side */
+  gap: 25px; /* space between buttons */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: rgba(255, 0, 0, 0.6);
+  color: white;
+}
+
